@@ -18,7 +18,7 @@
             <h2 class="mx-auto mt-6 max-w-md text-lg text-gray-500">Projek sederhana yang dipersembahkan untuk sidang
                 skripsi</h2>
             <div class="mx-auto">
-                <a href="#"
+                <a href="https://github.com/lymau/sentiment-analysis-lolwr"
                     class="mr-5 flex gap-2 rounded-md border border-gray-400 bg-gray-200 py-2 px-6 font-bold text-black hover:bg-gray-300">
                     <svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 fill-slate-900">
                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -50,12 +50,15 @@
             </form>
             <!-- Output -->
             <div class="col-span-6 flex w-full flex-col gap-2 rounded-md border bg-white p-4 shadow">
-                {{ result }}
                 <p class="text-sm text-gray-400">output</p>
-                <p class="text-center text-5xl">😄</p>
-                <p class="text-center font-bold text-gray-500">Sentimen Positif</p>
+                {% if sentiment %}
+                <p class="text-center text-5xl">{{ emoji }}</p>
+                <p class="text-center font-bold text-gray-500">{{ sentiment }}</p>
                 <p class="text-sm text-gray-400">Estimasi Probabilitas:</p>
-                <p class="text-center text-lg font-bold text-gray-500">0.600</p>
+                <p class="text-center text-lg font-bold text-gray-500">{{ prob }}</p>
+                {% else %}
+                <p class="text-gray-400 text-sm">Silakan isi input terlebih dahulu</p>
+                {% endif %}
             </div>
         </div>
     </main>
