@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analisis Sentimen untuk Ulasan Game League of Legends: Wild Rift</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="flex min-h-screen flex-col bg-white">
+    <main class="flex flex-col divide-y">
+        <!-- Header -->
+        <div class="container mx-auto flex flex-col gap-6 py-32 text-center">
+            <p class="text-center text-7xl">😄</p>
+            <h1 class="mx-auto max-w-xl text-4xl font-bold text-gray-900 md:text-6xl">Demo Analisis Sentimen untuk
+                Ulasan Game LOL: WR</h1>
+            <h2 class="mx-auto mt-6 max-w-md text-lg text-gray-500">Projek sederhana yang dipersembahkan untuk sidang
+                skripsi</h2>
+            <div class="mx-auto">
+                <a href="#"
+                    class="mr-5 flex gap-2 rounded-md border border-gray-400 bg-gray-200 py-2 px-6 font-bold text-black hover:bg-gray-300">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 fill-slate-900">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M12 2C6.477 2 2 6.463 2 11.97c0 4.404 2.865 8.14 6.839 9.458.5.092.682-.216.682-.48 0-.236-.008-.864-.013-1.695-2.782.602-3.369-1.337-3.369-1.337-.454-1.151-1.11-1.458-1.11-1.458-.908-.618.069-.606.069-.606 1.003.07 1.531 1.027 1.531 1.027.892 1.524 2.341 1.084 2.91.828.092-.643.35-1.083.636-1.332-2.22-.251-4.555-1.107-4.555-4.927 0-1.088.39-1.979 1.029-2.675-.103-.252-.446-1.266.098-2.638 0 0 .84-.268 2.75 1.022A9.607 9.607 0 0 1 12 6.82c.85.004 1.705.114 2.504.336 1.909-1.29 2.747-1.022 2.747-1.022.546 1.372.202 2.386.1 2.638.64.696 1.028 1.587 1.028 2.675 0 3.83-2.339 4.673-4.566 4.92.359.307.678.915.678 1.846 0 1.332-.012 2.407-.012 2.734 0 .267.18.577.688.48 3.97-1.32 6.833-5.054 6.833-9.458C22 6.463 17.522 2 12 2Z">
+                        </path>
+                    </svg>
+                    Lihat di Github
+                </a>
+            </div>
+        </div>
+
+        <div class="mx-auto grid w-full max-w-4xl grid-cols-12 gap-4 py-20">
+            <!-- Input -->
+            <form action="/submit" method="post" name="form" class="col-span-6 flex w-full flex-col gap-6">
+                <div class="col-span-6 flex flex-col gap-2 rounded-md border bg-white p-4 shadow">
+                    <label for="input" class="text-sm text-gray-400">input</label>
+                    <textarea type="text" id="input" name="input"
+                        class="rounded-md border p-2 text-sm text-gray-400 shadow-inner outline-none transition duration-200 ease-in-out focus:ring-2 focus:ring-sky-300"
+                        placeholder="Ulasan disini ..."></textarea>
+                </div>
+
+                <div class="flex flex-row-reverse w-full gap-4">
+                    <button
+                        class="w-full rounded-md border bg-gradient-to-br from-orange-200 to-orange-300 py-2 text-center font-semibold text-orange-800 shadow transition duration-300 ease-in-out hover:bg-gradient-to-br hover:from-orange-100 hover:to-orange-200">Submit</button>
+
+                    <button onclick="resetInput(); return false"
+                        class="w-full rounded-md border bg-gradient-to-br from-gray-100 to-gray-300 py-2 text-center font-semibold shadow transition duration-300 ease-in-out hover:bg-gradient-to-br hover:from-white hover:to-gray-200">Reset</button>
+                </div>
+            </form>
+            <!-- Output -->
+            <div class="col-span-6 flex w-full flex-col gap-2 rounded-md border bg-white p-4 shadow">
+                {{ result }}
+                <p class="text-sm text-gray-400">output</p>
+                <p class="text-center text-5xl">😄</p>
+                <p class="text-center font-bold text-gray-500">Sentimen Positif</p>
+                <p class="text-sm text-gray-400">Estimasi Probabilitas:</p>
+                <p class="text-center text-lg font-bold text-gray-500">0.600</p>
+            </div>
+        </div>
+    </main>
+    <script>
+        function resetInput() {
+            document.getElementById('input').value = ''
+        }
+    </script>
+</body>
+
+</html>
